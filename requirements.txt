@@ -1,0 +1,10 @@
+# https://github.com/ageitgey/face_recognition/issues/1041
+opencv-python-headless==4.2.0.32
+
+pyzbar
+Pillow
+
+# https://github.com/zxing/zxing
+zxing
+
+imutils
