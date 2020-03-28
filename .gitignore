@@ -4,6 +4,8 @@
 # Virtual Environment
 env/
 
+# DS_Store
+.DS_Store
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
