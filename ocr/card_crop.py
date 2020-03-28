@@ -1,5 +1,5 @@
 """
-OpenCV Filters for ID Card detection.
+OpenCV Filters for ID Card detection and selection/cropping.
 
 based on work for a playing card detector: https://github.com/EdjeElectronics/OpenCV-Playing-Card-Detector
 """
