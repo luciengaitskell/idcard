@@ -8,12 +8,14 @@ import cv2
 import numpy as np
 
 # Setup variables:
-IMG = 'sample_data/id_front.jpeg'
+IMG_NAME = 'id_front.jpeg'
+IMG_INP = 'sample_data/' + IMG_NAME
+IMG_OTP = 'output_data/' + IMG_NAME
 BKG_THRESH = 70  # background black threshold
 
 CARD_MIN_AREA = 25000
 
-im = cv2.imread(IMG)  # Load image
+im = cv2.imread(IMG_INP)  # Load image
 res_img = im.copy()  # Copy image for later result
 
 # Basic initial conversions
@@ -114,8 +116,10 @@ else:  # otherwise continue:
         trans = cv2.getPerspectiveTransform(corner_pts, pts2)
         dst = cv2.warpPerspective(res_img, trans, (M, int(M * RAT)))
         cv2.imshow("Warped ID Card from contours", dst)
+        cv2.imwrite(IMG_OTP, dst)
 
 cv2.imshow("ID Card with contours", im)
+
 
 # TODO: Select contour of card
 # TODO: Select corners
