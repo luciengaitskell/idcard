@@ -64,7 +64,7 @@ for i in [(0,1), (1,2), (2,3), (3,0)]:
 M = 600
 RAT = 1.5
 pts2 = np.float32([[0, 0], [0, M*RAT], [M, M*RAT], [M, 0]])
-trans = cv2.getPerspectiveTransform(np.float32(cardCnt), pts2)
+trans, status = cv2.findHomography(np.float32(cardCnt), pts2)
 dst = cv2.warpPerspective(res_img, trans, (M, int(M * RAT)))
 cv2.imshow("Warped ID Card from contours", dst)
 cv2.imwrite(IMG_OTP, dst)
