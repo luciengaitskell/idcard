@@ -55,10 +55,6 @@ def card_point(num):
     return int(cardCnt[num][0]), int(cardCnt[num][1])
 
 
-# Draw box around card, from corner points
-for i in [(0,1), (1,2), (2,3), (3,0)]:
-    cv2.line(im, card_point(i[0]), card_point(i[1]), (255, 0, 0), 3)
-
 # Perspective warp ID using corner points
 # https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html
 M = 600
