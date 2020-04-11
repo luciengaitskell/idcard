@@ -80,8 +80,8 @@ maxLineGap = 400
 
 lines = cv2.HoughLinesP(
     only_cnt,
-    rho=10,
-    theta=0.01*np.pi/180,
+    rho=20,
+    theta=1*np.pi/180,
     threshold=800,  # TODO: THIS IS making the operation very slow -- and needs a lot of refining ... find another way
     minLineLength=minLineLength,
     maxLineGap=maxLineGap)
