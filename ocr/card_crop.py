@@ -197,17 +197,35 @@ for item in intersections:
 
 cv2.imshow("ID Card with contours", im)
 
+x_sort, y_sort = np.argsort(np.transpose(intersections))
 
-def card_point(num):
-    return int(cardCnt[num][0]), int(cardCnt[num][1])
+# Sort corners
+for i in range(4):  # Iterate through all values in x_sort and y_sort
+    x = np.squeeze(np.argwhere(x_sort == i))  # Get position in x sorted array
+    y = np.squeeze(np.argwhere(y_sort == i))  # Get position in y sorted array
 
+    if x > 1:  # On right side (based on position in array)
+        if y > 1:  # On lower side
+            bottomRight = i
+        else:  # On upper side
+            topRight = i
+    else:  # On left side
+        if y > 1:  # On lower side
+            bottomLeft = i
+        else:  # On upper side
+            topLeft = i
+
+#print(intersections)
 
 # Perspective warp ID using corner points
 # https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html
 M = 600
 RAT = 1.5
-pts2 = np.float32([[0, 0], [0, M*RAT], [M, M*RAT], [M, 0]])
-trans, status = cv2.findHomography(np.float32(cardCnt), pts2)
+dstPts = np.float32([[0, 0], [M, 0], [0, M*RAT], [M, M*RAT]])  # Proportional size of card
+srcPts = np.float32(intersections)[[topLeft, topRight, bottomLeft, bottomRight]]  # Convert and sort source points
+
+# Warp perspective:
+trans, status = cv2.findHomography(srcPts, dstPts)
 dst = cv2.warpPerspective(res_img, trans, (M, int(M * RAT)))
 cv2.imshow("Warped ID Card from contours", dst)
 cv2.imwrite(IMG_OTP, dst)
