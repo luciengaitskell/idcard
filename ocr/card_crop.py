@@ -176,19 +176,18 @@ rows_to_fuse = tree.query_pairs(r=30)  # Get indexes of close points
 print(rows_to_fuse)
 
 
-# TODO: THIS DOES NOT SEEM TO WORK CORRECTLY
 # https://stackoverflow.com/questions/36985185/fast-fuse-of-close-points-in-a-numpy-2d-vectorized
 idxs_to_remove = []
 for row in rows_to_fuse:
     els = []
     for idx in row:
         els.append(intersections[idx])
-    s_idx = row.index(min(row))
+    min_idx = min(row)
     for excess in row:
-        if not excess == row[s_idx]:
+        if not excess == min_idx:
             idxs_to_remove.append(excess)
-    m = np.mean(els, axis=1)
-    intersections[s_idx] = m
+    m = np.mean(els, axis=0)
+    intersections[min_idx] = m
 
 intersections = np.delete(intersections, idxs_to_remove, axis=0)
 
