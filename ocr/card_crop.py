@@ -33,7 +33,7 @@ cv2.imshow("ID Card with filters", edged)
 if True:
     # https://stackoverflow.com/questions/49993616/multiple-line-detection-in-houghlinesp-opencv-function
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
-    dilated = cv2.dilate(edged.copy(), kernel)
+    dilated = cv2.dilate(edged, kernel)
     kernel1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
     erosion = cv2.erode(dilated, kernel1, iterations = 1)
     cnt_edited = erosion
@@ -68,7 +68,7 @@ if len(cnts) > 0:
 
 
 kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
-dilated = cv2.dilate(only_cnt.copy(), kernel)
+dilated = cv2.dilate(only_cnt, kernel)
 kernel1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
 erosion = cv2.erode(dilated, kernel1, iterations = 1)
 only_cnt = erosion
