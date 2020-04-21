@@ -150,7 +150,7 @@ def intersection(line1, line2):
     b = np.array([[rho1], [rho2]])
     x0, y0 = np.linalg.solve(A, b)
     x0, y0 = int(np.round(x0)), int(np.round(y0))
-    return [[x0, y0]]
+    return [x0, y0]
 
 
 def segmented_intersections(lines):
@@ -168,7 +168,7 @@ def segmented_intersections(lines):
 intersections = segmented_intersections(segmented)
 
 # Remove extra [] around elements (e.g. [[[a,b]], [c,d]]] -> [[a,b], [c,d]]
-intersections = np.squeeze(intersections, axis=1)
+intersections = np.array(intersections)
 
 # Finding close points:
 tree = cKDTree(intersections)
