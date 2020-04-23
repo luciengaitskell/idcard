@@ -69,7 +69,7 @@ if len(cnts) > 0:
 
 kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
 dilated = cv2.dilate(only_cnt, kernel)
-kernel1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+kernel1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
 erosion = cv2.erode(dilated, kernel1, iterations = 1)
 only_cnt = erosion
 cv2.imshow("ID Card with filters and only one contour", only_cnt)

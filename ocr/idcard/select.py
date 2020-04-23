@@ -61,7 +61,7 @@ class IDSelect:
         """ Dilate and erode id_contour for better HoughLines detection """
         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
         dilated = cv2.dilate(id_contour, kernel)
-        kernel1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
+        kernel1 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
         erosion = cv2.erode(dilated, kernel1, iterations=1)
         return erosion
 
