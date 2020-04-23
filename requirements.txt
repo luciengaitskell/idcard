@@ -1,13 +1,15 @@
 # https://github.com/ageitgey/face_recognition/issues/1041
 opencv-python-headless==4.2.0.32
-numpy
+numpy==1.18.3
 
 # Barcode:
 pyzbar
-Pillow
+Pillow==7.1.1
 # https://github.com/zxing/zxing
 zxing
 imutils
 
 # OCR
-pytesseract
+pytesseract==0.3.4
+
+scipy
