@@ -71,7 +71,7 @@ class IDSelect:
             id_contour,
             rho=1,
             theta=1 * np.pi / 180,
-            threshold=200
+            threshold=300
         )
 
     @staticmethod

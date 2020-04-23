@@ -83,7 +83,7 @@ lines = cv2.HoughLines(
     only_cnt,
     rho=1,
     theta=1*np.pi/180,
-    threshold=200)
+    threshold=300)
 print(len(lines))
 for l in lines:
     rho, theta = l[0]
