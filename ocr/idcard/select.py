@@ -18,7 +18,7 @@ class IDSelect:
         """ Use canny filter on black and white blurred image to detected edges. """
         gray = cv2.cvtColor(self.orig_im, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-        return cv2.Canny(blurred, 30, 225)
+        return cv2.Canny(blurred, 30, 300)
 
     def _process_edged(self, edged):
         """ Dilate and erode edged image to improve detection. """

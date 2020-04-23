@@ -22,7 +22,7 @@ res_img = im.copy()  # Copy image for later result
 
 gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-edged = cv2.Canny(blurred, 30, 225)
+edged = cv2.Canny(blurred, 30, 300)
 
 # Display filtered image
 cv2.imshow("ID Card with filters", edged)
