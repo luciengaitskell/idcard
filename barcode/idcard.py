@@ -24,6 +24,9 @@ class IDCardBarcode(_IDCardData):
         """
         Initialize and run ID card decoder.
 
+        NOTE: From testing, the barcode MUST be in landscape orientation for detection.
+        Can be .png or .jpg/.jpeg
+
         :param img: File path to decode
         """
         self.barcode = reader.decode(img)
