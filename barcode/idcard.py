@@ -29,6 +29,8 @@ class IDCardBarcode(_IDCardData):
         self.barcode = reader.decode(img)
         if self.barcode is not None:
             self.__parse()
+        else:
+            raise ValueError("None detected")
 
     def __parse(self):
         """ Iterate encoded barcode data and parse known lines. """
