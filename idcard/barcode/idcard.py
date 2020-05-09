@@ -19,7 +19,7 @@ class _IDCardData:
     datebirth = ("DBB", datetime.date)
 
 
-class IDCardBarcode(_IDCardData):
+class IDBarcode(_IDCardData):
     def __init__(self, img: str):
         """
         Initialize and run ID card decoder.
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     import cv2
     IMG = 'sample_data/id_back.png'
 
-    bc = IDCardBarcode(IMG)
+    bc = IDBarcode(IMG)
 
     im = cv2.imread(IMG)
 
