@@ -55,7 +55,33 @@ class IDCardBarcode(_IDCardData):
 
 
 if __name__ == "__main__":
+    import cv2
     IMG = 'sample_data/id_back.png'
 
     bc = IDCardBarcode(IMG)
+
+    im = cv2.imread(IMG)
+
+    # get the barcode top-left position
+    x1 = int(bc.barcode.points[0][0])
+    y1 = int(bc.barcode.points[0][1])
+
+
+    def bc_point(num):  # Get barcode point pair
+        return int(bc.barcode.points[num][0]), int(bc.barcode.points[num][1])
+
+
+    # Draw box around barcode
+    for i in [(0, 2), (2, 3), (3, 1), (1, 0)]:
+        cv2.line(im, bc_point(i[0]), bc_point(i[1]), (255, 0, 0), 3)
+
+    # draw the barcode data and barcode type on the image
+    cv2.putText(im, bc.barcode.raw, (x1, y1 - 50),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+
     print(bc.datebirth)
+
+    cv2.imshow("Reading PDF417 with Webcam", im)
+    cv2.waitKey(0);
+    cv2.destroyAllWindows()
