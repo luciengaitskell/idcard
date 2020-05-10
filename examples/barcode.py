@@ -1,4 +1,9 @@
-""" Barcode reading example. """
+"""
+Barcode reading example.
+
+NOTE: From testing, the barcode MUST be in landscape orientation for detection.
+
+"""
 import cv2
 from idcard.barcode import IDBarcode
 
