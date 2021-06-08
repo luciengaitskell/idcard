@@ -4,7 +4,7 @@ numpy==1.18.3
 
 # Barcode:
 pyzbar
-Pillow==7.1.1
+Pillow==8.2.0
 # https://github.com/zxing/zxing
 zxing
 imutils
