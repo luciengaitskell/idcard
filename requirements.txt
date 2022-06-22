@@ -1,6 +1,6 @@
 # https://github.com/ageitgey/face_recognition/issues/1041#issuecomment-609061215
 opencv-contrib-python==4.2.0.34
-numpy==1.18.3
+numpy==1.22.0
 
 # Barcode:
 pyzbar
